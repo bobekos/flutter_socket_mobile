@@ -51,6 +51,10 @@ public class SocketMobileService implements ConnectionCallback, CaptureClient.Li
         // else should close `_capture`
         if (this.capture != null) {
             Log.w("SocketMobileService", "SocketMobile already configured");
+
+            capture.disconnect();
+            capture.connect(this);
+
             return;
         }
 
